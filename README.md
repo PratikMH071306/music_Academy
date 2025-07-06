@@ -1,5 +1,10 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Some Command to Commit & Push the Code ..
+git add . 
+git commit -m "your commit message here" 
+git push origin main
+
 ## Getting Started
 
 First, run the development server:
