@@ -2,6 +2,7 @@
 import React from "react";
 import { motion, Transition } from "framer-motion";
 
+// Transition config
 const transition: Transition = {
   type: "spring",
   mass: 0.5,
@@ -11,6 +12,25 @@ const transition: Transition = {
   restSpeed: 0.001,
 };
 
+// ✅ Exported Menu wrapper
+export const Menu = ({
+  children,
+  setActive,
+}: {
+  children: React.ReactNode;
+  setActive: (item: string) => void;
+}) => {
+  return (
+    <div
+      onMouseLeave={() => setActive("")}
+      className="relative rounded-full flex justify-center space-x-10 border border-black/[0.2] dark:border-white/[0.2] bg-white/75 dark:bg-black/75 px-10 py-4 shadow-lg backdrop-blur"
+    >
+      {children}
+    </div>
+  );
+};
+
+// ✅ Exported MenuItem (already provided)
 export const MenuItem = ({
   setActive,
   active,
@@ -54,5 +74,41 @@ export const MenuItem = ({
         </motion.div>
       )}
     </div>
+  );
+};
+
+// ✅ Exported HoveredLink
+export const HoveredLink = ({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <a
+      href={href}
+      className="text-sm text-neutral-700 dark:text-neutral-200 hover:text-black dark:hover:text-white transition"
+    >
+      {children}
+    </a>
+  );
+};
+
+// ✅ Optional ProductItem (basic placeholder)
+export const ProductItem = ({
+  title,
+  href,
+  description,
+}: {
+  title: string;
+  href: string;
+  description: string;
+}) => {
+  return (
+    <a href={href} className="block p-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded">
+      <p className="font-semibold">{title}</p>
+      <p className="text-xs text-neutral-500 dark:text-neutral-400">{description}</p>
+    </a>
   );
 };
